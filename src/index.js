@@ -327,7 +327,7 @@ class MiniCssExtractPlugin {
               `// ${pluginName} CSS loading`,
               `var cssChunks = ${JSON.stringify(chunkMap)};`,
               'if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);',
-              'else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {',
+              'else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId] && typeof document !== "undefined") {',
               Template.indent([
                 'promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {',
                 Template.indent([
